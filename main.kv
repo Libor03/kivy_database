@@ -1,0 +1,77 @@
+#:import math.ceil math
+
+BoxLayout:
+    orientation:'vertical'
+
+
+    MDBottomNavigation:
+        id: navigation
+        panel_color: .8, .8, .4, 1
+
+        MDBottomNavigationItem:
+            name: 'screen 1'
+            text: 'Databáze studentů'
+            icon: 'card-bulleted'
+
+            DatabaseScreen:
+
+
+
+<BMIScreen>
+    name:'databasescreen'
+
+
+<PersonContent>:
+    orientation: 'vertical'
+    size_hint_x: 1
+    size_hint_y: None
+    height: "100dp"
+
+    MDTextField:
+        id: person_name
+        text: 'jméno osoby'
+        pos_hint: {'center_x': .5, 'center_y': .9}
+
+    MDDropDownItem:
+        id: state_item
+        pos_hint: {'center_x': .5, 'center_y': .7}
+        size_hint_x: 1
+        text: 'Stát'
+        on_release: self.parent.menu_states.open()
+
+    MDDropDownItem:
+        id: city_item
+        pos_hint: {'center_x': .5, 'center_y': .5}
+        size_hint_x: 1
+        text: 'Město'
+        on_release: self.parent.menu_city.open()
+
+<StateContent>:
+    orientation: 'vertical'
+    size_hint_x: 1
+    size_hint_y: None
+    height: "100dp"
+
+    MDTextField:
+        id: state_short_name
+        text: 'Zkratka státu'
+        pos_hint: {'center_x': .5, 'center_y': .9}
+
+    MDTextField:
+        id: state_full_name
+        text: 'Celý název státu'
+        pos_hint: {'center_x': .5, 'center_y': .7}
+
+
+<CityContent>:
+    orientation: 'vertical'
+    size_hint_x: 1
+    size_hint_y: None
+    height: "100dp"
+
+    MDTextField:
+        id: city_name
+        text: 'název města'
+        pos_hint: {'center_x': .5, 'center_y': .9}
+
+
