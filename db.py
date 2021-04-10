@@ -9,7 +9,7 @@ MYSQL = 'mysql'
 
 Base = declarative_base()
 
-
+#tabulky v databázi
 class City(Base):
     __tablename__ = 'city'
 
@@ -33,6 +33,7 @@ class Person(Base):
     state_short = Column(String(3), ForeignKey('states.short_name'))
     city = Column(String(50), ForeignKey('city.name'))
 
+#připojení do databáze
 class Db:
     DB_ENGINE = {
         SQLITE: 'sqlite:///{DB}',
@@ -52,6 +53,7 @@ class Db:
         Session = sessionmaker(bind=self.engine)
         self.session = Session()
 
+    #funkce načtení a úpravu databáze
     def read_all(self, order = Person.name):
         try:
             result = self.session.query(Person).order_by(order).all()
